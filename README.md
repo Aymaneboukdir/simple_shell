@@ -1,0 +1,3 @@
+Simple _shell
+:wq
+
