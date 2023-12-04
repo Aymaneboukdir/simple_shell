@@ -45,7 +45,7 @@ int _strcmp(char *s1, char *s2)
  * @haystack: string to searchh
  * @needle: the substring to findd
  *
- * Return: address of next char of haystack 
+ * Return: address of next char of haystack
  */
 char *starts_with(const char *haystack, const char *needle)
 {
