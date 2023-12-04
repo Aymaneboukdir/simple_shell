@@ -130,15 +130,12 @@ void fork_cmd(info_t *info)
  * @info: the parameter , return inf struct
  *
  * Return: -1 if builtin not found
-<<<<<<< HEAD
  *0 if builtin executed successfully,
  *1 if builtin found but not successful,
  *2 if builtin signals exit()
-=======
  * 0 if builtin executed successfully,
  * 1 if builtin found but not successful,
  * 2 if builtin signals exit()
->>>>>>> 3516817fa817491eb19b587b9905be3d66b57838
  */
 int find_builtin(info_t *info)
 {
