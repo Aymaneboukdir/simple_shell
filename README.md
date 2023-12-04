@@ -1,3 +1,2 @@
 Simple _shell
-:wq
 
