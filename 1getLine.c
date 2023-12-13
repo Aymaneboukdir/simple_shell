@@ -125,7 +125,7 @@ size_t k;
 ssize_t r = 0, s = 0;
 char *p = NULL, *new_p = NULL, *c;
 
-p = *ptr,
+p = *ptr;
 if (p && length)
 s = *length;
 if (i == len)
