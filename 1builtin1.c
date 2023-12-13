@@ -49,19 +49,6 @@ _setenv(info, "PWD", getcwd(buffer, 1024));
 return (0);
 }
 /**
- * _myhistory - displays the history list, one command by line, preceded
- *              with line numbers, starting at 0.
- * @info: The structure that contains possible arguments. Used to maintain
- *        fixed function prototype.
- *  Return: Always 0
- */
-int _myhistory(info_t *info)
-{
-print_list(info->history);
-return (0);
-}
-
-/**
  * unset_alias - set alias to string
  * @info: parameter the struct
  * @str: string alias
