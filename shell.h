@@ -180,9 +180,9 @@ int _erratoi(char *);
 int _myexit(info_t *);
 int _myhelp(info_t *);
 int _isalpha(int);
+int _myhistory(info_t *);
 
 /* toem_1builtin1.c */
-int _myhistory(info_t *);
 int _myalias(info_t *);
 int _mycd(info_t *);
 
