@@ -1,28 +1,5 @@
-#include "shell.h"
+ #include "shell.h"
 
-/**
- * get_history_file - gets the history file
- * @info: parameter structure
- *
- * Return: The custom string contains the history file
-*/
-
-char *get_history_file(info_t *info)
-{
-char *buf, *dir;
-
-dir = _getenv(info, "HOME=");
-if (!dir)
-return (NULL);
-buf = malloc(sizeof(char) * (_strlen(dir) + _strlen(HIST_FILE) + 2));
-if (!buf)
-return (NULL);
-buf[0] = 0;
-_strcpy(buf, dir);
-_strcat(buf, "/");
-_strcat(buf, HIST_FILE);
-return (buf);
-}
 
 /**
  * write_history - creates a file,
@@ -51,6 +28,31 @@ _putfd('\n', fd);
 _putfd(BUF_FLUSH, fd);
 close(fd);
 return (1);
+}
+
+
+/**
+ * get_history_file - gets the history file
+ * @info: parameter structure
+ *
+ * Return: The custom string contains the history file
+*/
+
+char *get_history_file(info_t *info)
+{
+char *buf, *dir;
+
+dir = _getenv(info, "HOME=");
+if (!dir)
+return (NULL);
+buf = malloc(sizeof(char) * (_strlen(dir) + _strlen(HIST_FILE) + 2));
+if (!buf)
+return (NULL);
+buf[0] = 0;
+_strcpy(buf, dir);
+_strcat(buf, "/");
+_strcat(buf, HIST_FILE);
+return (buf);
 }
 
 /**
@@ -102,26 +104,6 @@ renumber_history(info);
 return (info->histcount);
 }
 
-/**
- * build_history_list - adds the entry to a list linked to the data
- * @info: The Structure contains possible arguments.
- * @buf: buffer
- * @linecount: history linecount, histcount
- *
- * Return: Always 0
-*/
-int build_history_list(info_t *info, char *buf, int linecount)
-{
-list_t *node = NULL;
-
-if (info->history)
-node = info->history;
-add_node_end(&node, buf, linecount);
-
-if (!info->history)
-info->history = node;
-return (0);
-}
 
 /**
  * renumber_history - renumbers the data-linked list after changes

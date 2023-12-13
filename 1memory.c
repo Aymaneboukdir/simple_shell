@@ -38,3 +38,24 @@ return (0);
 }
 return (1);
 }
+
+/**
+ * build_history_list - adds the entry to a list linked to the data
+ * @info: The Structure contains possible arguments.
+ * @buf: buffer
+ * @linecount: history linecount, histcount
+ *
+ * Return: Always 0
+*/
+int build_history_list(info_t *info, char *buf, int linecount)
+{
+list_t *node = NULL;
+
+if (info->history)
+node = info->history;
+add_node_end(&node, buf, linecount);
+
+if (!info->history)
+info->history = node;
+return (0);
+}
