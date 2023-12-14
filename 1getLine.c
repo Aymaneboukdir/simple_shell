@@ -1,6 +1,19 @@
 #include "shell.h"
 
 /**
+ * sigintHandler -  ctrl-C blocks
+ * @sig_num: the signal number
+ *
+ * Return: void
+*/
+void sigintHandler(__attribute__((unused))int sig_num)
+{
+_puts("\n");
+_puts("$ ");
+_putchar(BUF_FLUSH);
+}
+
+/**
  * input_buf - buffers for sequential commands
  * @info: parameter structure
  * @buf: buffer address
@@ -154,17 +167,4 @@ if (length)
 *length = s;
 *ptr = p;
 return (s);
-}
-
-/**
- * sigintHandler -  ctrl-C blocks
- * @sig_num: the signal number
- *
- * Return: void
-*/
-void sigintHandler(__attribute__((unused))int sig_num)
-{
-_puts("\n");
-_puts("$ ");
-_putchar(BUF_FLUSH);
 }

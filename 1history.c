@@ -56,6 +56,25 @@ return (buf);
 }
 
 /**
+ * renumber_history - renumbers the data-linked list after changes
+ * @info: the Structure contains possible arguments.
+ *
+ * Return: The New historical issue
+*/
+int renumber_history(info_t *info)
+{
+list_t *node = info->history;
+int i = 0;
+
+while (node)
+{
+node->num = i++;
+node = node->next;
+}
+return (info->histcount = i);
+}
+
+/**
  * read_history - Read history from file
  * @info: the parameter structure
  *
@@ -102,24 +121,4 @@ while (info->histcount-- >= HIST_MAX)
 delete_node_at_index(&(info->history), 0);
 renumber_history(info);
 return (info->histcount);
-}
-
-
-/**
- * renumber_history - renumbers the data-linked list after changes
- * @info: the Structure contains possible arguments.
- *
- * Return: The New historical issue
-*/
-int renumber_history(info_t *info)
-{
-list_t *node = info->history;
-int i = 0;
-
-while (node)
-{
-node->num = i++;
-node = node->next;
-}
-return (info->histcount = i);
 }

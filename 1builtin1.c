@@ -1,10 +1,12 @@
 #include "shell.h"
+
 /**
  * _mycd - change the current directory of the process.
  * @info: The structure that contains possible arguments. Used to maintain
  * fixed function prototype.
  * Return: Always 0
- */
+*/
+
 int _mycd(info_t *info)
 {
 char *s, *dir, buffer[1024];
@@ -48,6 +50,7 @@ _setenv(info, "PWD", getcwd(buffer, 1024));
 }
 return (0);
 }
+
 /**
  * unset_alias - set alias to string
  * @info: parameter the struct
@@ -55,6 +58,7 @@ return (0);
  *
  * Return: Always 0 on success, 1 on error
 */
+
 int unset_alias(info_t *info, char *str)
 {
 char *p, c;
@@ -70,6 +74,7 @@ get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
 *p = c;
 return (ret);
 }
+
 
 /**
  * set_alias - set alias to string
@@ -91,12 +96,13 @@ return (unset_alias(info, str));
 unset_alias(info, str);
 return (add_node_end(&(info->alias), str, 0) == NULL);
 }
+
 /**
  * _myalias - mimics the alias builtin (man alias)
  * @info: The structure that contains possible arguments. Used to maintain
  *          fixed function prototype.
  *  Return: Always 0
- */
+*/
 int _myalias(info_t *info)
 {
 int i = 0;

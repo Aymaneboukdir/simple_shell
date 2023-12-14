@@ -1,24 +1,28 @@
 #include "shell.h"
 
 /**
- * list_len - specifies the length of the linked list
- * @h: pointer to the first node
+ * free_list - edits all nodes from the list
+ * @head_ptr: address of the pointer to the head node
  *
- * Return: list size
+ * Return: void
 */
-size_t list_len(const list_t *h)
+void free_list(list_t **head_ptr)
 {
-size_t i = 0;
+list_t *node, *next_node, *head;
 
-while (h)
+if (!head_ptr || !*head_ptr)
+return;
+head = *head_ptr;
+node = head;
+while (node)
 {
-h = h->next;
-i++;
+next_node = node->next;
+free(node->str);
+free(node);
+node = next_node;
 }
-return (i);
+*head_ptr = NULL;
 }
-
-
 
 /**
  * print_list - prints all elements of the linked list list_t
@@ -100,26 +104,21 @@ node = node->next;
 }
 return (NULL);
 }
-/**
- * free_list - edits all nodes from the list
- * @head_ptr: address of the pointer to the head node
- *
- * Return: void
-*/
-void free_list(list_t **head_ptr)
-{
-list_t *node, *next_node, *head;
 
-if (!head_ptr || !*head_ptr)
-return;
-head = *head_ptr;
-node = head;
-while (node)
+/**
+ * list_len - specifies the length of the linked list
+ * @h: pointer to the first node
+ *
+ * Return: list size
+*/
+size_t list_len(const list_t *h)
 {
-next_node = node->next;
-free(node->str);
-free(node);
-node = next_node;
+size_t i = 0;
+
+while (h)
+{
+h = h->next;
+i++;
 }
-*head_ptr = NULL;
+return (i);
 }

@@ -1,17 +1,6 @@
 #include "shell.h"
 
 /**
- * interactive - yields true if shell is interactive
- * @info: the structure address
- *
- * Return: 1 if interactive mode, 0 otherwisee
- */
-int interactive(info_t *info)
-{
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
-}
-
-/**
  * _atoi - convert a string to the correct number
  * @s: the string converted
  * Return: 0 if no nos in string, converted no otherwise
@@ -57,4 +46,15 @@ while (*delim)
 if (*delim++ == c)
 return (1);
 return (0);
+}
+
+/**
+ * interactive - yields true if shell is interactive
+ * @info: the structure address
+ *
+ * Return: 1 if interactive mode, 0 otherwisee
+ */
+int interactive(info_t *info)
+{
+return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }

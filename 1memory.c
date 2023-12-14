@@ -1,22 +1,6 @@
 #include "shell.h"
 
 /**
- * bfree - free the address of the NULL pointer
- * @ptr: cursor address to freeze
- *
- * Return: 1 if freed, otherwise 0.
-*/
-int bfree(void **ptr)
-{
-if (ptr && *ptr)
-{
-free(*ptr);
-*ptr = NULL;
-return (1);
-}
-return (0);
-}
-/**
  * print_alias - print the alias string
  * @node: node alias
  *
@@ -57,5 +41,22 @@ add_node_end(&node, buf, linecount);
 
 if (!info->history)
 info->history = node;
+return (0);
+}
+
+/**
+ * bfree - free the address of the NULL pointer
+ * @ptr: cursor address to freeze
+ *
+ * Return: 1 if freed, otherwise 0.
+*/
+int bfree(void **ptr)
+{
+if (ptr && *ptr)
+{
+free(*ptr);
+*ptr = NULL;
+return (1);
+}
 return (0);
 }
